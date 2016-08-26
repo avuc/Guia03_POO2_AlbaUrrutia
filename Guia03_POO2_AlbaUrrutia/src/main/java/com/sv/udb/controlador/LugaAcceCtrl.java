@@ -6,18 +6,21 @@
 package com.sv.udb.controlador;
 
 import com.sv.udb.modelo.LugaAcce;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 /**
  *
  * @author Laboratorio
  */
 public class LugaAcceCtrl {
     
-     public boolean guar(LugaAcce obje)
+    public boolean guar(LugaAcce obje)
     {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
@@ -33,56 +36,97 @@ public class LugaAcceCtrl {
         catch(Exception ex)
         {
             tx.rollback();
-            ex.printStackTrace();
         }
-        finally
-        {
-            em.close();
-            emf.close();            
-        }
+        em.close();
+        emf.close();
         return resp;
     }
     
-    public LugaAcce cons(Long codiLugaAcce)
+     public List<LugaAcce>  ConsTodo()
     {
+        List<LugaAcce> resp = new ArrayList<>();
+          EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
+           EntityManager em = emf.createEntityManager();
+        try
+        {
+          TypedQuery<LugaAcce> query =em.createNamedQuery("LugaAcce.findAll", LugaAcce.class);
+           resp = query.getResultList();
+        }
+        catch(Exception ex)
+        {
+            
+        }
+        return resp;
+       
+    }
+    
+     public boolean modi(LugaAcce obje)
+    {
+        boolean resp = false;
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        LugaAcce lugar = null;
+        tx.begin();
+        try
+        {
+            
+            lugar = em.find(LugaAcce.class, obje.getCodiLugaAcce());
+            lugar.setNombLugaAcce(obje.getNombLugaAcce());
+            tx.commit();
+            resp = true;
+        }
+        catch(Exception ex)
+        {
+            tx.rollback();
+        }
+        em.close();
+        emf.close();
+        return resp;
+    }
+    
+   
+    public boolean elim(Long empId)
+    {
+        boolean resp = false;
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        LugaAcce lugar = null;
+        tx.begin();
+        try
+        {
+            
+            lugar = em.find(LugaAcce.class, empId);
+            lugar.setEsta(0);
+            lugar.setFechBaja(new Date());
+            tx.commit();
+            resp = true;
+        }
+        catch(Exception ex)
+        {
+            tx.rollback();
+        }
+        em.close();
+        emf.close();
+        return resp;
+    }
+
+
+     
+     
+    public LugaAcce get(Long empId){
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
+        EntityManager em = emf.createEntityManager();
         LugaAcce resp = null;
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
-        EntityManager em = emf.createEntityManager();
-        try
-        {
-            resp = em.find(LugaAcce.class, codiLugaAcce);
-        }
-        catch(Exception ex)
-        {
-            ex.printStackTrace();
-        }
-        finally
-        {
-            em.close();
-            emf.close();            
-        }
+        
+        try{
+            resp = em.find(LugaAcce.class, empId);
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }                
         return resp;
     }
-    
-    public List<LugaAcce> cons()
-    {
-        List<LugaAcce> resp = null;
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
-        EntityManager em = emf.createEntityManager();
-        try
-        {
-            resp = em.createNamedQuery("LugaAcce.findAll", LugaAcce.class).getResultList();
-        }
-        catch(Exception ex)
-        {
-            ex.printStackTrace();
-        }
-        finally
-        {
-            em.close();
-            emf.close();            
-        }
-        return resp;
-    }
-    
 }
