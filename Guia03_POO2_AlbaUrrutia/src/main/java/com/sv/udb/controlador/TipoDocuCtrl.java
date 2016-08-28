@@ -51,7 +51,12 @@ public class TipoDocuCtrl {
         emf.close();
         return resp;
     }
-    
+     /**
+ * Método que consulta todos los registros de la base de datos
+ * @return Lista de objetos tipo TipoDocu
+ * @exception Error al consultar       
+ * @since incluido desde la version 1.0
+ */
      public List<TipoDocu>  ConsTodo()
     {
         List<TipoDocu> resp = new ArrayList<>();
@@ -69,6 +74,14 @@ public class TipoDocuCtrl {
         return resp;
        
     }
+     
+/**
+* Método que modifica un objeto de la base de dtos
+* @param obje Objeto del tipo TipoDocu
+* @return boolean si la operación se realizó correctamente o no
+* @exception Error al modificar registro         
+* @since incluido desde la version 1.0
+*/
         public boolean modi(TipoDocu obje)
     {
         boolean resp = false;
@@ -94,7 +107,13 @@ public class TipoDocuCtrl {
         return resp;
     }
     
-   
+ /**
+ * Método que cambia el estado a un registro de la base de datos
+ * @param empId Código del Registro
+ * @return boolean si la operación se realizó correctamente o no
+ * @exception Error al cambiar estado al registro
+ * @since incluido desde la version 1.0
+ */
     public boolean elim(Long empId)
     {
         boolean resp = false;
@@ -122,7 +141,13 @@ public class TipoDocuCtrl {
     }
 
 
-     
+/**
+* Método que cambia estado a un registro de la base de datos
+* @param empId obtiene el codigo
+* @return boolean si la operación se realizó correctamente o no
+* @exception Error al cambiar estado
+* @since incluido desde la version 1.0
+*/
      
     public TipoDocu get(Long empId){
         

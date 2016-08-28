@@ -109,7 +109,7 @@ public class LugaAcceCtrl {
     }
    
 /**
- * Método que camnia estado a un registro de la base de datos
+ * Método que cambia estado a un registro de la base de datos
  * @param empId Código del Registro
  * @return boolean si la operación se realizó correctamente o no
  * @exception Error al cambiar estado al registro
@@ -140,16 +140,9 @@ public class LugaAcceCtrl {
         emf.close();
         return resp;
     }
-   /**
-     * Método que camnia estado a un registro de la base de datos
-     * @param Entero Código del Registro
-     * @return boolean si la operación se realizó correctamente o no
-     * @exception Error al cambiar estado al registro         
-     * @since incluido desde la version 1.0
-     */
-     
+
     /**
-     * Método que camnia estado a un registro de la base de datos
+     * Método que cambia estado a un registro de la base de datos
      * @param empId obtiene el codigo
      * @return boolean si la operación se realizó correctamente o no
      * @exception Error al cambiar estado al registro

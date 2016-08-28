@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.sv.udb.modelo;
 
 import java.io.Serializable;
@@ -22,8 +18,8 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- * @author Laboratorio
+ * @author Vanessa
+ * @version 1.0 27 de Agosto de 2016
  */
 @Entity
 @Table(name = "tipo_gafe", catalog = "rceron_poo", schema = "")
@@ -55,49 +51,87 @@ public class TipoGafe implements Serializable {
     @Column(name = "esta")
     private Integer esta;
 
+    /**
+     * Método constructor
+     */
     public TipoGafe() {
     }
-
+  /**
+     * Método constructor
+     * @param codiTipoGafe codigo del registro
+     */
     public TipoGafe(Long codiTipoGafe) {
         this.codiTipoGafe = codiTipoGafe;
     }
-
+   /**
+     * Método para obtener valor
+     * @return Entero código del tipo gafe
+     */
     public Long getCodiTipoGafe() {
         return codiTipoGafe;
     }
-
+/**
+     * Es el método para fijar valor a una variable del objeto
+     * @param codiTipoGafe código tipo gafe
+     */
     public void setCodiTipoGafe(Long codiTipoGafe) {
         this.codiTipoGafe = codiTipoGafe;
     }
-
+   /**
+     * Método para obtener el nombre
+     * @return String nombre del tipo gafe
+     */
     public String getNombTipoGafe() {
         return nombTipoGafe;
     }
-
+/**
+     * Es el método para fijar valor a una variable del objeto
+     * @param nombTipoGafe nombre tipo gafe
+     */
     public void setNombTipoGafe(String nombTipoGafe) {
         this.nombTipoGafe = nombTipoGafe;
     }
-
+   /**
+     * Método para obtener la fecha alta
+     * @return date la fecha alta del tipo gafe
+     */
     public Date getFechAlta() {
         return fechAlta;
     }
-
+/**
+     * Es el método para fijar valor a una variable del objeto
+     * @param fechAlta parametro de la fecha alta de tipo gafe
+     */
     public void setFechAlta(Date fechAlta) {
         this.fechAlta = fechAlta;
     }
-
+   /**
+     * Método para obtener la fecha baja
+     * @return date la fecha baja del tipo gafe
+     */
     public Date getFechBaja() {
         return fechBaja;
     }
 
+/**
+     * Es el método para fijar valor a una variable del objeto
+     * @param fechBaja parametro de la fecha baja de tipo gafe
+     */
     public void setFechBaja(Date fechBaja) {
         this.fechBaja = fechBaja;
     }
-
+   /**
+     * Método para obtener el estado
+     * @return Integer estado del tipo gafe
+     */
     public Integer getEsta() {
         return esta;
     }
 
+/**
+     * Es el método para fijar valor a una variable del objeto
+     * @param esta parametro del estado de tipo gafe
+     */
     public void setEsta(Integer esta) {
         this.esta = esta;
     }

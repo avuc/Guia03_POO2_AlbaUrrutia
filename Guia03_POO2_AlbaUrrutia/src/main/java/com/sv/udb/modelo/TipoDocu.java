@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.sv.udb.modelo;
 
 import java.io.Serializable;
@@ -22,8 +18,8 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- * @author Laboratorio
+ * @author Vanessa
+ * @version 1.0 27 de Agosto de 2016
  */
 @Entity
 @Table(name = "tipo_docu", catalog = "rceron_poo", schema = "")
@@ -54,50 +50,90 @@ public class TipoDocu implements Serializable {
     private Date fechBaja;
     @Column(name = "esta")
     private Integer esta;
-
+   /**
+     * Método constructor
+     */
     public TipoDocu() {
     }
-
+/**
+     * Método constructor
+     * @param codiTipoDocu codigo del registro
+     */
     public TipoDocu(Long codiTipoDocu) {
         this.codiTipoDocu = codiTipoDocu;
     }
-
+   /**
+     * Método para obtener valor
+     * @return Entero código 
+     */
     public Long getCodiTipoDocu() {
         return codiTipoDocu;
     }
-
+/**
+     * Es el método para fijar valor a una variable del objeto
+     * @param codiTipoDocu código
+     */
     public void setCodiTipoDocu(Long codiTipoDocu) {
         this.codiTipoDocu = codiTipoDocu;
     }
 
+ /**
+     * Método para obtener el nombre
+     * @return String nombre del documennto
+     */
     public String getNombTipoDocu() {
         return nombTipoDocu;
     }
 
+/**
+     * Es el método para fijar valor a una variable del objeto
+     * @param nombTipoDocu nombre del tipo documento
+     */
     public void setNombTipoDocu(String nombTipoDocu) {
         this.nombTipoDocu = nombTipoDocu;
     }
 
+ /**
+     * Método para obtener la fecha alta
+     * @return date para a fecha alta
+     */
     public Date getFechAlta() {
         return fechAlta;
     }
 
+/**
+     * Es el método para fijar valor a una variable del objeto
+     * @param fechAlta 
+     */
     public void setFechAlta(Date fechAlta) {
         this.fechAlta = fechAlta;
     }
-
+ /**
+     * Método para obtener la fecha baja
+     * @return date para a fecha baja
+     */
     public Date getFechBaja() {
         return fechBaja;
     }
 
+/**
+     * Es el método para fijar valor a una variable del objeto
+     * @param fechBaja la fecha baja
+     */
     public void setFechBaja(Date fechBaja) {
         this.fechBaja = fechBaja;
     }
-
+ /**
+     * Método para obtener el estado
+     * @return integer para el estado
+     */
     public Integer getEsta() {
         return esta;
     }
-
+/**
+     * Es el método para fijar valor a una variable del objeto
+     * @param esta estado
+     */
     public void setEsta(Integer esta) {
         this.esta = esta;
     }
