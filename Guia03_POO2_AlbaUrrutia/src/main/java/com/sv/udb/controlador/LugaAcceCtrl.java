@@ -16,9 +16,18 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 /**
  *
- * @author Laboratorio
+ * @author Vanessa 
+ * @version 1.0 27 de Agosto de 2016
  */
 public class LugaAcceCtrl {
+    
+/**
+ * Método que guarda un objeto del tipo LugaAcce en la bd
+ * @param obje objeto de "LugaAcce"
+ * @return boolean si la operación se realizó correctamente o no se hizo la operación
+ * @exception Error al continuar con el objeto         
+ * @since incluido desde la version 1.0
+ */
     
     public boolean guar(LugaAcce obje)
     {
@@ -42,6 +51,13 @@ public class LugaAcceCtrl {
         return resp;
     }
     
+ /**
+ * Método que consulta todos los registros de la base de datos
+ * @return Lista de objetos tipo LugaAcce
+ * @exception Error al consultar       
+ * @since incluido desde la version 1.0
+ */
+    
      public List<LugaAcce>  ConsTodo()
     {
         List<LugaAcce> resp = new ArrayList<>();
@@ -59,7 +75,14 @@ public class LugaAcceCtrl {
         return resp;
        
     }
-    
+     
+/**
+* Método que modifica un objeto de la base de dtos
+* @param obje Objeto del tipo LugaAcce"
+* @return boolean si la operación se realizó correctamente o no
+* @exception Error al modificar registro         
+* @since incluido desde la version 1.0
+*/ 
      public boolean modi(LugaAcce obje)
     {
         boolean resp = false;
@@ -84,8 +107,14 @@ public class LugaAcceCtrl {
         emf.close();
         return resp;
     }
-    
    
+/**
+ * Método que camnia estado a un registro de la base de datos
+ * @param empId Código del Registro
+ * @return boolean si la operación se realizó correctamente o no
+ * @exception Error al cambiar estado al registro
+ * @since incluido desde la version 1.0
+ */
     public boolean elim(Long empId)
     {
         boolean resp = false;
@@ -111,10 +140,21 @@ public class LugaAcceCtrl {
         emf.close();
         return resp;
     }
-
-
+   /**
+     * Método que camnia estado a un registro de la base de datos
+     * @param Entero Código del Registro
+     * @return boolean si la operación se realizó correctamente o no
+     * @exception Error al cambiar estado al registro         
+     * @since incluido desde la version 1.0
+     */
      
-     
+    /**
+     * Método que camnia estado a un registro de la base de datos
+     * @param empId obtiene el codigo
+     * @return boolean si la operación se realizó correctamente o no
+     * @exception Error al cambiar estado al registro
+     * @since incluido desde la version 1.0
+     */
     public LugaAcce get(Long empId){
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");

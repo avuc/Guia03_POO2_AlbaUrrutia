@@ -16,9 +16,19 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 /**
  *
- * @author Laboratorio
+ * @author Vanessa 
+ * @version 1.0 27 de Agosto de 2016
  */
 public class TipoDocuCtrl {
+    
+    
+    /**
+ * Método que guarda un objeto del tipo LugaAcce en la bd
+ * @param obje objeto de "TipoDocu"
+ * @return boolean si la operación se realizó correctamente o no se hizo la operación
+ * @exception Error al continuar con el objeto         
+ * @since incluido desde la version 1.0
+ */
     
     public boolean guar(TipoDocu obje)
     {

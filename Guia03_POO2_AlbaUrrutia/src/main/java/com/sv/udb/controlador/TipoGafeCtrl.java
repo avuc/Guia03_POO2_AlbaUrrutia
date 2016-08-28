@@ -15,7 +15,8 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 /**
  *
- * @author Laboratorio
+ * @author Vanessa 
+ * @version 1.0 27 de Agosto de 2016
  */
 public class TipoGafeCtrl {
   
